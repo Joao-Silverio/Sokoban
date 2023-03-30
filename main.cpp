@@ -1,6 +1,7 @@
 #include "cursor.cpp"
 #include "mapas.cpp"
 #include "movimentos.cpp"
+#include "telas.cpp"
 
 int main()
 {
@@ -8,21 +9,22 @@ int main()
 
     //Posi��o inicial do personagem no console
     int x, y;
+    int MJ[20][22];
     int qualMapa;
-    cout << "Qual o mapa que deseja jogar";
-    cin >> qualMapa;
-
-    LoadPosicao(qualMapa, x, y);
+    inicio();
+    qualMapa = NovoJogo();
+    LoadMap(qualMapa, MJ);
+    LoadPosicao(qualMapa,x, y);
 
     system("Cls");
     do{
         resetaCursor();
 
-        LoadMap(qualMapa, x, y);
+        imprimeMapa(MJ, x, y);
 
-        movimentos(x, y);
+        movimentos(MJ, x, y);
 
-    } while (x != 50);//fim do laço do jogo
+    } while (gameOver(qualMapa, MJ) == false);//fim do laço do jogo
 
     return 0;
 } //fim main

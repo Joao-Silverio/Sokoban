@@ -1,30 +1,93 @@
 #include <conio.h>
 
-void movimentos(int &x, int &y) {
-            ///executa os movimentos
-     if ( _kbhit() ){
+void andarcima(int MJ[20][22], int &x, int &y) {
+    if(MJ[x-1][y] == 1 ){
+        return;
+    } else if(MJ[x-1][y] == 2 && MJ[x-2][y] == 1) {
+        return;
+    } else if (MJ[x-1][y] == 2 && MJ[x-2][y] == 0){
+        MJ[x-1][y] = 0;
+        MJ[x-2][y] = 2;
+        x--;
+    }else {
+        x--;
+    }
+}
+
+void andarbaixo(int MJ[20][22], int &x, int &y) {
+    if(MJ[x+1][y] == 1 ){
+        return;
+    } else if(MJ[x+1][y] == 2 && MJ[x+2][y] == 1) {
+        return;
+    } else if (MJ[x+1][y] == 2 && MJ[x+2][y] == 0){
+        MJ[x+1][y] = 0;
+        MJ[x+2][y] = 2;
+        x++;
+    }else {
+        x++;
+    }
+}
+
+void andardireita(int MJ[20][22], int &x, int &y) {
+    if(MJ[x][y+1] == 1 ){
+        return;
+    } else if(MJ[x][y+1] == 2 && MJ[x][y+2] == 1) {
+        return;
+    } else if (MJ[x][y+1] == 2 && MJ[x][y+2] == 0){
+        MJ[x][y+1] = 0;
+        MJ[x][y+2] = 2;
+        y++;
+    }
+    else {
+        y++;
+    }
+}
+
+void andaresquerda(int MJ[20][22], int &x, int &y) {
+    if(MJ[x][y-1] == 1 ){
+        return;
+    } else if(MJ[x][y-1] == 2 && MJ[x][y-2] == 1) {
+        return;
+    } else if (MJ[x][y-1] == 2 && MJ[x][y-2] == 0){
+        MJ[x][y-1] = 0;
+        MJ[x][y-2] = 2;
+        y--;
+    }else if (MJ[x][y-1] == 2 && MJ[x][y-2] == 3){
+        MJ[x][y-1] = 0;
+        MJ[x][y-2] = 2;
+        y--;
+    } else {
+        y--;
+    }
+}
+
+
+void movimentos(int MJ[20][22], int &x, int &y) {
+    ///executa os movimentos
+    if ( _kbhit() ){
         char tecla;
         tecla = getch();
         switch(tecla)
         {
             case 72: case 'w': ///cima
-                x--;
+                andarcima(MJ, x, y);
             break;
             case 80: case 's': ///baixo
-                x++;
+                andarbaixo(MJ, x, y);
             break;
             case 75:case 'a': ///esquerda
-                y--;
+                andaresquerda(MJ, x, y);
             break;
             case 77: case 'd': ///direita
-                y++;
+                andardireita(MJ, x, y);
             break;
             case 'f': ///fim do jogo
-                x = 50;
             break;
         }
-     }
+    }
 }
+
+
 
 void LoadPosicao(int mapa, int &x, int &y){
     if (mapa == 1){
