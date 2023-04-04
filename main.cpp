@@ -1,7 +1,4 @@
-#include "cursor.cpp"
-#include "mapas.cpp"
-#include "movimentos.cpp"
-#include "telas.cpp"
+#include "jogo.cpp"
 
 int main()
 {
@@ -9,22 +6,34 @@ int main()
 
     //Posi��o inicial do personagem no console
     int x, y;
-    int MJ[20][22];
-    int qualMapa;
-    inicio();
-    qualMapa = NovoJogo();
-    LoadMap(qualMapa, MJ);
-    LoadPosicao(qualMapa,x, y);
+    int MJ[20][22] = {0};
+    int index, mapa;
+    int tecla;
+    
+    do
+    {       
+        menu(index);
 
-    system("Cls");
-    do{
-        resetaCursor();
-
-        imprimeMapa(MJ, x, y);
-
-        movimentos(MJ, x, y);
-
-    } while (gameOver(qualMapa, MJ) == false);//fim do laço do jogo
-
+        switch (index)
+        {
+        case 1:
+            mapa = NovoJogo();
+            LoadMap(mapa, MJ);
+            LoadPosicao(mapa, x, y);
+            jogo(MJ, x, y);
+            break;
+        case 2:
+            jogo(MJ, x, y);
+            break;
+        case 3: 
+            sobre();
+            break;
+        case 4: 
+            tecla = 4;
+        default:
+            break;
+        }
+    } while (tecla != 4);
+    
     return 0;
 } //fim main
