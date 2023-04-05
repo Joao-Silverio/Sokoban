@@ -23,7 +23,10 @@ void andarbaixo(int MJ[20][22], int &x, int &y) {
         return;
     } else if(MJ[x+1][y] == 2 && MJ[x+2][y] == 1) {
         return;
-    } else if (MJ[x+1][y] == 2 && MJ[x+2][y] == 0){
+    } 
+    else if(MJ[x+1][y] == 2 && MJ[x+2][y] == 2) {
+        return;
+    }else if (MJ[x+1][y] == 2 && MJ[x+2][y] == 0){
         MJ[x+1][y] = 0;
         MJ[x+2][y] = 2;
         x++;

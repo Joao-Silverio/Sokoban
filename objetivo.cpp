@@ -22,6 +22,15 @@ void objetivomapa2(int MJ[20][22]){
     if(MJ[obj1x][obj1y] == 2 && MJ[obj2x][obj2y] == 2 && MJ[obj3x][obj3y] == 2) {
         gameWinScreen();
     }
+    if(MJ[obj1x][obj1y] == 0){
+        MJ[obj1x][obj1y] = 3;
+    }
+    if(MJ[obj2x][obj2y] == 0){
+        MJ[obj2x][obj2y] = 3;
+    }
+    if(MJ[obj1x][obj1y] == 0){
+        MJ[obj3x][obj3y] = 3;
+    }
 } //verifica se minhas caixas estao no objetivo do mapa 2
 
 void objetivomapa3(int MJ[20][22]){
@@ -31,9 +40,18 @@ void objetivomapa3(int MJ[20][22]){
     int obj2x = 2;
     int obj2y = 6;
     int obj3x = 3;
-    int obj3y = 6;
+    int obj3y = 6;   
     if(MJ[obj1x][obj1y] == 2 && MJ[obj2x][obj2y] == 2 && MJ[obj3x][obj3y] == 2) {
         gameWinScreen();
+    }
+    if(MJ[obj1x][obj1y] == 0){
+        MJ[obj1x][obj1y] = 3;
+    }
+    if(MJ[obj2x][obj2y] == 0){
+        MJ[obj2x][obj2y] = 3;
+    }
+    if(MJ[obj1x][obj1y] == 0){
+        MJ[obj3x][obj3y] = 3;
     }
 } //verifica se minhas caixas estao no objetivo do mapa 3
 
