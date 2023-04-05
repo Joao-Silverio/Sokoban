@@ -13,8 +13,8 @@ void imprimeMapa(int m[20][22], int x, int y) {
                     switch (m[i][j]){
                         case 0: cout<<" "; break; //caminho
                         case 1: cout<<char(219); break; //parede
-                        case 2: cout <<char(20); break; // caixa
-                        case 3: cout <<char(110); break;
+                        case 2: cout <<char(4); break; // caixa
+                        case 3: cout <<char(176); break; //objetivo
                         //default: cout<<"-"; //erro
                     } //fim switchs
                 }
@@ -23,7 +23,7 @@ void imprimeMapa(int m[20][22], int x, int y) {
         } //fim for mapa
 
         cout << "\n" << "Pressione ESC para voltar ao menu";
-}
+} //fim da funcao que imprime meu mapa, com parede caixas e objetivos
 
 void carregamapa1(int MJ[20][22]){
     int m[20][22]={ 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
@@ -52,7 +52,7 @@ void carregamapa1(int MJ[20][22]){
             MJ[i][j] = m[i][j];
         }
     }
-}
+} //funcao que carrega minha matriz com o mapa 1 para a matriz de jogo atual
 
 
 void carregamapa2(int MJ[20][22]){
@@ -60,7 +60,7 @@ void carregamapa2(int MJ[20][22]){
                     0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,
                     0,0,0,0,0,0,0,0,1,0,2,1,0,0,1,1,0,0,0,0,0,0,
                     0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,
-                    0,0,0,0,0,0,0,0,1,0,1,0,2,0,1,1,1,0,0,0,0,0,
+                    0,0,0,0,0,0,0,0,1,0,0,0,2,0,1,1,1,0,0,0,0,0,
                     1,1,1,1,1,1,1,1,1,0,0,0,1,0,1,1,1,0,0,0,0,0,
                     1,3,0,0,0,0,0,1,1,0,0,0,2,0,0,0,1,0,0,0,0,0,
                     1,1,3,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,
@@ -82,7 +82,7 @@ void carregamapa2(int MJ[20][22]){
             MJ[i][j] = m2[i][j];
         }
     }
-}
+} //funcao que carrega minha matriz com o mapa 2 para a matriz de jogo atual
 
 
 void carregamapa3(int MJ[20][22]){
@@ -112,7 +112,7 @@ void carregamapa3(int MJ[20][22]){
             MJ[i][j] = m3[i][j];
         }
     }
-}
+} //funcao que carrega minha matriz com o mapa 3 para a matriz de jogo atual
 
 
 void LoadMap(int mapa, int MJ[20][22]){
@@ -123,4 +123,4 @@ void LoadMap(int mapa, int MJ[20][22]){
     } else if(mapa == 3) {
         carregamapa3(MJ);
     }
-}
+} //funcao que verifica qual mapa foi escolhido e chama a funcao para carregar mapa especifico
