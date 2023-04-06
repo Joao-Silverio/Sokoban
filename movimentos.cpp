@@ -5,6 +5,8 @@ void andarcima(int MJ[20][22], int &x, int &y) {
         return;
     } else if(MJ[x-1][y] == 2 && MJ[x-2][y] == 1) {
         return;
+    } else if(MJ[x-1][y] == 2 && MJ[x-2][y] == 2) {
+        return;
     } else if (MJ[x-1][y] == 2 && MJ[x-2][y] == 0){
         MJ[x-1][y] = 0;
         MJ[x-2][y] = 2;
@@ -23,7 +25,7 @@ void andarbaixo(int MJ[20][22], int &x, int &y) {
         return;
     } else if(MJ[x+1][y] == 2 && MJ[x+2][y] == 1) {
         return;
-    } 
+    }
     else if(MJ[x+1][y] == 2 && MJ[x+2][y] == 2) {
         return;
     }else if (MJ[x+1][y] == 2 && MJ[x+2][y] == 0){
@@ -44,6 +46,8 @@ void andardireita(int MJ[20][22], int &x, int &y) {
         return;
     } else if(MJ[x][y+1] == 2 && MJ[x][y+2] == 1) {
         return;
+    } else if(MJ[x][y+1] == 2 && MJ[x][y+2] == 2) {
+        return;
     } else if (MJ[x][y+1] == 2 && MJ[x][y+2] == 0){
         MJ[x][y+1] = 0;
         MJ[x][y+2] = 2;
@@ -62,6 +66,8 @@ void andaresquerda(int MJ[20][22], int &x, int &y) {
     if(MJ[x][y-1] == 1 ){
         return;
     } else if(MJ[x][y-1] == 2 && MJ[x][y-2] == 1) {
+        return;
+    } else if(MJ[x][y-1] == 2 && MJ[x][y-2] == 2) {
         return;
     } else if (MJ[x][y-1] == 2 && MJ[x][y-2] == 0){
         MJ[x][y-1] = 0;
