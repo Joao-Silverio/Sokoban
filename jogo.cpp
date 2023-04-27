@@ -3,7 +3,7 @@
 #include "objetivo.cpp"
 
 
-void jogo(MAPA &mapajogo, int mapa){
+void jogo(MAPA &mapajogo){
     system("Cls");
     int mov;
     do{

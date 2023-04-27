@@ -53,7 +53,7 @@ void imprimeMapa(MAPA mapajogo) {
         cout << "\n" << "Pressione ESC para voltar ao menu";
 } //fim da funcao que imprime meu mapa, com parede caixas e objetivos
 
-void carregamapa1(MAPA &mapajogo){
+MAPA carregamapa1(){
     MAPA mapa1;
     mapa1.arquivo="mapas/mapa1.txt";
     mapa1.carrega();
@@ -61,11 +61,15 @@ void carregamapa1(MAPA &mapajogo){
     mapa1.y = 11;
     mapa1.obj1x = 12;
     mapa1.obj1y = 11;
-    mapajogo = mapa1;
+    mapa1.obj2x = NULL;
+    mapa1.obj2y = NULL;
+    mapa1.obj3x = NULL;
+    mapa1.obj3y = NULL;    
+    return mapa1;
 } //funcao que carrega minha matriz com o mapa 1 para a matriz de jogo atual
 
 
-void carregamapa2(MAPA &mapajogo){
+MAPA carregamapa2(){
     MAPA mapa2;
     mapa2.arquivo="mapas/mapa2.txt";
     mapa2.carrega();
@@ -77,11 +81,11 @@ void carregamapa2(MAPA &mapajogo){
     mapa2.obj2y = 2;
     mapa2.obj3x = 8;
     mapa2.obj3y = 1;
-    mapajogo = mapa2;
+    return mapa2;
 } //funcao que carrega minha matriz com o mapa 2 para a matriz de jogo atual
 
 
-void carregamapa3(MAPA &mapajogo){
+MAPA carregamapa3(){
     MAPA mapa3;
     mapa3.arquivo="mapas/mapa3.txt";
     mapa3.carrega();
@@ -93,16 +97,19 @@ void carregamapa3(MAPA &mapajogo){
     mapa3.obj2y = 6;
     mapa3.obj3x = 3;
     mapa3.obj3y = 6;   
-    mapajogo = mapa3;
+    return mapa3;
 } //funcao que carrega minha matriz com o mapa 3 para a matriz de jogo atual
 
-MAPA carregam(){
-    MAPA mapa1;
-    mapa1.arquivo="mapas/mapa1.txt";
-    mapa1.carrega();
-    mapa1.x = 12;
-    mapa1.y = 11;
-    mapa1.obj1x = 12;
-    mapa1.obj1y = 11;
-    return mapa1;
+MAPA carregamapa(int mapa){
+    switch (mapa)
+    {
+        case 1:
+            return carregamapa1();
+        case 2:
+            return carregamapa2();
+        case 3:
+            return carregamapa3();
+        default:
+            break;
+    }
 }
