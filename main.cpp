@@ -1,15 +1,14 @@
 #include "jogo.cpp"
 
-
 int main()
 {
     piscaCursor();
 
     //Posi��o inicial do personagem no console
     MAPA mapajogo;
-    int x, y;
     int index, mapa;
     int tecla;
+    
 
     do
     {
@@ -19,16 +18,20 @@ int main()
         {
         case 1:
             mapa = NovoJogo(); //variavel recebe valor do mapa(1, 2, 3)
-            MAPA mapa1;
-            mapa1.arquivo="mapas/mapa1.txt";
-            mapa1.carrega();
-            mapa1.x = 12;
-            mapa1.y = 11;
-            mapajogo = mapa1;
-            jogo(mapajogo, x, y, mapa); // comeca o jogo com as variaveis atualizadas
+            mapajogo.arquivo="mapas/mapa2.txt";
+            mapajogo.carrega();
+            mapajogo.x = 1;
+            mapajogo.y = 14;
+            mapajogo.obj1x = 6;
+            mapajogo.obj1y = 1;
+            mapajogo.obj2x = 7;
+            mapajogo.obj2y = 2;
+            mapajogo.obj3x = 8;
+            mapajogo.obj3y = 1;
+            jogo(mapajogo, mapa); // comeca o jogo com as variaveis atualizadas
             break;
         case 2:
-            //jogo(MJ, x, y, mapa); //chama a funcao jogo com as variaveis guardadas anteriormente
+            jogo(mapajogo, mapa); //chama a funcao jogo com as variaveis guardadas anteriormente
             break;
         case 3:
             sobre(); // funcao sobre o programa

@@ -3,17 +3,17 @@
 #include "objetivo.cpp"
 
 
-void jogo(MAPA mapajogo, int &x, int &y, int mapa){
+void jogo(MAPA &mapajogo, int mapa){
     system("Cls");
     int mov;
     do{
         resetaCursor();
 
-        imprimeMapa(mapajogo, x, y);
+        imprimeMapa(mapajogo);
 
         mov = movimentos(mapajogo);
 
-        //objetivo(mapajogo, mapa);
+        objetivo(mapajogo);
 
     } while (mov !=2);//fim do laço do jogo a partir do retorno 2 da funcao movimentos(apenas com o ESC)
 
