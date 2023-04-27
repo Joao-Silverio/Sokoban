@@ -1,93 +1,93 @@
 #include <conio.h>
 
-void andarcima(int MJ[20][22], int &x, int &y) {
-    if(MJ[x-1][y] == 1 ){
+void andarcima(MAPA mapajogo) {
+    if(mapajogo.matriz[mapajogo.x-1][mapajogo.y] == 1 ){
         return;
-    } else if(MJ[x-1][y] == 2 && MJ[x-2][y] == 1) {
+    } else if(mapajogo.matriz[mapajogo.x-1][mapajogo.y] == 2 && mapajogo.matriz[mapajogo.x-2][mapajogo.y] == 1) {
         return;
-    } else if(MJ[x-1][y] == 2 && MJ[x-2][y] == 2) {
+    } else if(mapajogo.matriz[mapajogo.x-1][mapajogo.y] == 2 && mapajogo.matriz[mapajogo.x-2][mapajogo.y] == 2) {
         return;
-    } else if (MJ[x-1][y] == 2 && MJ[x-2][y] == 0){
-        MJ[x-1][y] = 0;
-        MJ[x-2][y] = 2;
-        x--;
-    } else if (MJ[x-1][y] == 2 && MJ[x-2][y] == 3){
-        MJ[x-1][y] = 0;
-        MJ[x-1][y] = 2;
-        x--;
+    } else if (mapajogo.matriz[mapajogo.x-1][mapajogo.y] == 2 && mapajogo.matriz[mapajogo.x-2][mapajogo.y] == 0){
+        mapajogo.matriz[mapajogo.x-1][mapajogo.y] = 0;
+        mapajogo.matriz[mapajogo.x-2][mapajogo.y] = 2;
+        mapajogo.x--;
+    } else if (mapajogo.matriz[mapajogo.x-1][mapajogo.y] == 2 && mapajogo.matriz[mapajogo.x-2][mapajogo.y] == 3){
+        mapajogo.matriz[mapajogo.x-1][mapajogo.y] = 0;
+        mapajogo.matriz[mapajogo.x-1][mapajogo.y] = 2;
+        mapajogo.x--;
     }else {
-        x--;
+        mapajogo.x--;
     }
 } // fim da funcao que verifica se e possivel andar para cima
-
-void andarbaixo(int MJ[20][22], int &x, int &y) {
-    if(MJ[x+1][y] == 1 ){
+/*
+void andarbaixo(MAPA mapajogo) {
+    if(mapajogo.matriz[x+1][y] == 1 ){
         return;
-    } else if(MJ[x+1][y] == 2 && MJ[x+2][y] == 1) {
+    } else if(mapajogo.matriz[x+1][y] == 2 && mapajogo.matriz[x+2][y] == 1) {
         return;
     }
-    else if(MJ[x+1][y] == 2 && MJ[x+2][y] == 2) {
+    else if(mapajogo.matriz[x+1][y] == 2 && mapajogo.matriz[x+2][y] == 2) {
         return;
-    }else if (MJ[x+1][y] == 2 && MJ[x+2][y] == 0){
-        MJ[x+1][y] = 0;
-        MJ[x+2][y] = 2;
-        x++;
-    } else if (MJ[x+1][y] == 2 && MJ[x+2][y] == 3){
-        MJ[x+1][y] = 0;
-        MJ[x+2][y] = 2;
-        x++;
+    }else if (mapajogo.matriz[x+1][y] == 2 && mapajogo.matriz[x+2][y] == 0){
+        mapajogo.matriz[x+1][y] = 0;
+        mapajogo.matriz[x+2][y] = 2;
+        mapajogo.x++;
+    } else if (mapajogo.matriz[x+1][y] == 2 && mapajogo.matriz[x+2][y] == 3){
+        mapajogo.matriz[x+1][y] = 0;
+        mapajogo.matriz[x+2][y] = 2;
+        mapajogo.x++;
     }else {
-        x++;
+        mapajogo.x++;
     }
 } // fim da funcao que verifica se e possivel andar para baixo
-
-void andardireita(int MJ[20][22], int &x, int &y) {
-    if(MJ[x][y+1] == 1 ){
+*/
+void andardireita(MAPA mapajogo) {
+    if(mapajogo.matriz[mapajogo.x][mapajogo.y+1] == 1 ){
         return;
-    } else if(MJ[x][y+1] == 2 && MJ[x][y+2] == 1) {
+    } else if(mapajogo.matriz[mapajogo.x][mapajogo.y+1] == 2 && mapajogo.matriz[mapajogo.x][mapajogo.y+2] == 1) {
         return;
-    } else if(MJ[x][y+1] == 2 && MJ[x][y+2] == 2) {
+    } else if(mapajogo.matriz[mapajogo.x][mapajogo.y+1] == 2 && mapajogo.matriz[mapajogo.x][mapajogo.y+2] == 2) {
         return;
-    } else if (MJ[x][y+1] == 2 && MJ[x][y+2] == 0){
-        MJ[x][y+1] = 0;
-        MJ[x][y+2] = 2;
-        y++;
-    }else if (MJ[x][y+1] == 2 && MJ[x][y+2] == 3){
-        MJ[x][y+1] = 0;
-        MJ[x][y+2] = 2;
-        y++;
+    } else if (mapajogo.matriz[mapajogo.x][mapajogo.y+1] == 2 && mapajogo.matriz[mapajogo.x][mapajogo.y+2] == 0){
+        mapajogo.matriz[mapajogo.x][mapajogo.y+1] = 0;
+        mapajogo.matriz[mapajogo.x][mapajogo.y+2] = 2;
+        mapajogo.y++;
+    }else if (mapajogo.matriz[mapajogo.x][mapajogo.y+1] == 2 && mapajogo.matriz[mapajogo.x][mapajogo.y+2] == 3){
+        mapajogo.matriz[mapajogo.x][mapajogo.y+1] = 0;
+        mapajogo.matriz[mapajogo.x][mapajogo.y+2] = 2;
+        mapajogo.y++;
     }
     else {
-        y++;
+        mapajogo.y++;
     }
 }// fim da funcao que verifica se e possivel andar para direita
-
-void andaresquerda(int MJ[20][22], int &x, int &y) {
-    if(MJ[x][y-1] == 1 ){
+/*
+void andaresquerda(MAPA mapajogo) {
+    if(mapajogo.matriz[x][y-1] == 1 ){
         return;
-    } else if(MJ[x][y-1] == 2 && MJ[x][y-2] == 1) {
+    } else if(mapajogo.matriz[x][y-1] == 2 && mapajogo.matriz[x][y-2] == 1) {
         return;
-    } else if(MJ[x][y-1] == 2 && MJ[x][y-2] == 2) {
+    } else if(mapajogo.matriz[x][y-1] == 2 && mapajogo.matriz[x][y-2] == 2) {
         return;
-    } else if (MJ[x][y-1] == 2 && MJ[x][y-2] == 0){
-        MJ[x][y-1] = 0;
-        MJ[x][y-2] = 2;
-        y--;
-    }else if (MJ[x][y-1] == 2 && MJ[x][y-2] == 3){
-        MJ[x][y-1] = 0;
-        MJ[x][y-2] = 2;
-        y--;
-    } else if (MJ[x][y-1] == 2 && MJ[x][y-2] == 3){
-        MJ[x][y-1] = 0;
-        MJ[x][y-2] = 2;
-        y--;
+    } else if (mapajogo.matriz[x][y-1] == 2 && mapajogo.matriz[x][y-2] == 0){
+        mapajogo.matriz[x][y-1] = 0;
+        mapajogo.matriz[x][y-2] = 2;
+        mapajogo.y--;
+    }else if (mapajogo.matriz[x][y-1] == 2 && mapajogo.matriz[x][y-2] == 3){
+        mapajogo.matriz[x][y-1] = 0;
+        mapajogo.matriz[x][y-2] = 2;
+        mapajogo.y--;
+    } else if (mapajogo.matriz[x][y-1] == 2 && mapajogo.matriz[x][y-2] == 3){
+        mapajogo.matriz[x][y-1] = 0;
+        mapajogo.matriz[x][y-2] = 2;
+        mapajogo.y--;
     } else {
-        y--;
+        mapajogo.y--;
     }
 } // fim da funcao que verifica se e possivel andar para esquerda
 
-
-int movimentos(int MJ[20][22], int &x, int &y) {
+*/
+int movimentos(MAPA mapajogo) {
     ///executa os movimentos
     if ( _kbhit() ){
         char tecla;
@@ -95,21 +95,21 @@ int movimentos(int MJ[20][22], int &x, int &y) {
         switch(tecla)
         {
             case 72: case 'w': ///cima
-                andarcima(MJ, x, y);
+                andarcima(mapajogo);
                 return 1;
             break;
-            case 80: case 's': ///baixo
-                andarbaixo(MJ, x, y);
+            /*case 80: case 's': ///baixo
+                andarbaixo(mapajogo);
                 return 1;
             break;
             case 75:case 'a': ///esquerda
-                andaresquerda(MJ, x, y);
+                andaresquerda(mapajogo);
                 return 1;
             break;
             case 77: case 'd': ///direita
-                andardireita(MJ, x, y);
+                andardireita(mapajogo);
                 return 1;
-            break;
+            break;*/
             case 27:
                 return 2; //apenas retorna 2 se o input for ESC
             break;
