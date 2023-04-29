@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <fstream>
 
+
 using namespace std;
 
 struct MAPA {
@@ -11,6 +12,9 @@ struct MAPA {
     int obj1x, obj1y;
     int obj2x, obj2y;
     int obj3x, obj3y;
+    int mapa = 0;
+    int cont = 0;
+    int movant = 0;
 
     void carrega(){
         ifstream stream;
@@ -31,12 +35,19 @@ struct MAPA {
     }
 };
 
+void colorir (int cor) {
+    HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(out, cor);
+}
+
 void imprimeMapa(MAPA mapajogo) {
     ///Imprime o jogo: mapa e personagem.
         for(int i=0;i<mapajogo.linha;i++){
             for(int j=0;j<mapajogo.coluna;j++){
                 if(i==mapajogo.x && j==mapajogo.y){
+                    colorir(10); //colorir faz com que a escrita a seguir seja com a cor número 10
                     cout<<char(2); //personagem
+                    colorir(7); //volta a cor da escrita ao default
                 } else {
                     switch (mapajogo.matriz[i][j]){
                         case 0: cout<<" "; break; //caminho
@@ -51,7 +62,10 @@ void imprimeMapa(MAPA mapajogo) {
         } //fim for mapa
 
         cout << "\n" << "Pressione ESC para voltar ao menu";
+        cout << "\nPressione L para voltar 1 movimento";
 } //fim da funcao que imprime meu mapa, com parede caixas e objetivos
+
+
 
 MAPA carregamapa1(){
     MAPA mapa1;
@@ -64,7 +78,8 @@ MAPA carregamapa1(){
     mapa1.obj2x = NULL;
     mapa1.obj2y = NULL;
     mapa1.obj3x = NULL;
-    mapa1.obj3y = NULL;    
+    mapa1.obj3y = NULL;
+    mapa1.mapa = 1;
     return mapa1;
 } //funcao que carrega minha matriz com o mapa 1 para a matriz de jogo atual
 
@@ -81,6 +96,7 @@ MAPA carregamapa2(){
     mapa2.obj2y = 2;
     mapa2.obj3x = 8;
     mapa2.obj3y = 1;
+    mapa2.mapa = 2;
     return mapa2;
 } //funcao que carrega minha matriz com o mapa 2 para a matriz de jogo atual
 
@@ -96,7 +112,8 @@ MAPA carregamapa3(){
     mapa3.obj2x = 2;
     mapa3.obj2y = 6;
     mapa3.obj3x = 3;
-    mapa3.obj3y = 6;   
+    mapa3.obj3y = 6;
+    mapa3.mapa = 3;
     return mapa3;
 } //funcao que carrega minha matriz com o mapa 3 para a matriz de jogo atual
 

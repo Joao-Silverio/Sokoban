@@ -1,5 +1,5 @@
 #include <iostream>
-#include "movimentos.cpp"
+
 
 using namespace std;
 
@@ -7,8 +7,9 @@ void menu(int &index){
     system("Cls");
     cout << "1 - Novo Jogo\n";
     cout << "2 - Continuar\n";
-    cout << "3 - Sobre\n";
-    cout << "4 - Fim\n";
+    cout << "3 - Ranking de Jogadores\n";
+    cout << "4 - Sobre\n";
+    cout << "5 - Fim\n";
     cin >> index;
 } // tela menu inicial
 
@@ -25,7 +26,7 @@ int NovoJogo(){
         qualMapa = rand()%3 + 1;
     }
     return qualMapa;
-} // tela de selecionar mapa 
+} // tela de selecionar mapa
 
 void sobre(){
     char tecla;
@@ -39,12 +40,39 @@ void sobre(){
         cout << "Este jogo de quebra-cabeca foi originalmente inventado no Japao no inicio dos anos 80.\n";
         cout << "Voce deve empurrar as caixas para seus locais apropriados com um numero minimo de movimentos.\n";
         cout << "\n" << "Pressione ESC para voltar ao menu";
-        
+
         tecla = getch();
-        
-    } while (tecla != 27);   
+
+    } while (tecla != 27);
 } //tela sobre o jogo desenvolvido
 
-void gameWinScreen(){
-    cout << "\nCongratulations";
+void ranking(MAPA mapajogo){
+    ofstream arquivo;
+    arquivo.open("ranking.txt", ios_base::app);
+    if(arquivo.is_open()) {
+        arquivo << "Seu ranking no mapa " << mapajogo.mapa << " é " << mapajogo.cont << "\n";
+        arquivo.close();
+        cout <<"\nRanking salvo com sucesso";
+        return;
+    }
+    else {
+        cout << "Nao foi possível salvar seu ranking";
+        return;
+    }
+    arquivo.close();
+}
+
+
+void gameWinScreen(MAPA &mapajogo){
+    cout << "\nParabens voce venceu o jogo em " << mapajogo.cont << " movimentos";
+    cout << "\nDeseja salvar seus movimentos? Digite 1\n";
+    cout << "Se nao deseja digite Digite 2\n";
+    int salvar;
+    cin>>salvar;
+    if(salvar == 1){
+        ranking(mapajogo);
+    }
+    mapajogo.mapa = 0;
+    cout << "\nPara retornar ao menu aperte ESC";
 } // mensagem de game Win
+
