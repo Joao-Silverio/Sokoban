@@ -15,21 +15,15 @@ int main()
         {
             case 1:
                 mapajogo.mapa = NovoJogo(); //variavel recebe valor do mapa(1, 2, 3)
-                mapajogo = carregamapa(mapajogo.mapa);
-                cout << mapajogo.x;
+                mapajogo.cont = 0;
+                carregamapa(mapajogo);
                 jogo(mapajogo); // comeca o jogo com as variaveis atualizadas
                 break;
             case 2:
-                if(mapajogo.mapa == 0){
-                    mapajogo.mapa = NovoJogo();
-                    mapajogo = carregamapa(mapajogo.mapa);
-                    cout << mapajogo.x;
-                    jogo(mapajogo); // comeca o jogo com as variaveis atualizadas
-                }
-                jogo(mapajogo); //chama a funcao jogo com as variaveis guardadas anteriormente
+                continuar(mapajogo);
                 break;
-            case 3: //funcao ranking de jogadores salvos em um arquivo
-
+            case 3: //funcao ler ranking de jogadores salvos em um arquivo
+                ler_ranking();
                 break;
             case 4:
                 sobre(); // funcao sobre o programa

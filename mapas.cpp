@@ -7,20 +7,20 @@ using namespace std;
 
 struct MAPA {
     char *arquivo;
-    int linha,coluna, x, y;
+    int linha = 0 ,coluna = 0, x, y;
     int matriz[20][22];
-    int obj1x, obj1y;
-    int obj2x, obj2y;
-    int obj3x, obj3y;
     int mapa = 0;
     int cont = 0;
     int movant = 0;
+    string nome;
 
-    void carrega(){
+    void carregatudo(){
         ifstream stream;
         stream.open(arquivo);
 
         if (stream.is_open()){
+            stream>>x;
+            stream>>y;
             stream>>linha;
             stream>>coluna;
             for(int i=0; i<linha; i++){
@@ -28,11 +28,13 @@ struct MAPA {
                     stream>>matriz[i][j];
                 }
             }
-        stream.close();
+            stream>>nome;            
+            stream.close();
         } else {
             cout<<"nao foi possivel abrir esse arquivo";
         }
     }
+
 };
 
 void colorir (int cor) {
@@ -45,7 +47,7 @@ void imprimeMapa(MAPA mapajogo) {
         for(int i=0;i<mapajogo.linha;i++){
             for(int j=0;j<mapajogo.coluna;j++){
                 if(i==mapajogo.x && j==mapajogo.y){
-                    colorir(10); //colorir faz com que a escrita a seguir seja com a cor número 10
+                    colorir(10); //colorir faz com que a escrita a seguir seja com a cor nï¿½mero 10
                     cout<<char(2); //personagem
                     colorir(7); //volta a cor da escrita ao default
                 } else {
@@ -54,6 +56,11 @@ void imprimeMapa(MAPA mapajogo) {
                         case 1: cout<<char(219); break; //parede
                         case 2: cout <<char(4); break; // caixa
                         case 3: cout <<char(176); break; //objetivo
+                        case 4:
+                            colorir(9);
+                            cout <<char(4); 
+                            colorir(7);
+                            break; //caixa no objetivo
                         //default: cout<<"-"; //erro
                     } //fim switchs
                 }
@@ -65,67 +72,21 @@ void imprimeMapa(MAPA mapajogo) {
         cout << "\nPressione L para voltar 1 movimento";
 } //fim da funcao que imprime meu mapa, com parede caixas e objetivos
 
-
-
-MAPA carregamapa1(){
-    MAPA mapa1;
-    mapa1.arquivo="mapas/mapa1.txt";
-    mapa1.carrega();
-    mapa1.x = 12;
-    mapa1.y = 11;
-    mapa1.obj1x = 12;
-    mapa1.obj1y = 11;
-    mapa1.obj2x = NULL;
-    mapa1.obj2y = NULL;
-    mapa1.obj3x = NULL;
-    mapa1.obj3y = NULL;
-    mapa1.mapa = 1;
-    return mapa1;
-} //funcao que carrega minha matriz com o mapa 1 para a matriz de jogo atual
-
-
-MAPA carregamapa2(){
-    MAPA mapa2;
-    mapa2.arquivo="mapas/mapa2.txt";
-    mapa2.carrega();
-    mapa2.x = 1;
-    mapa2.y = 14;
-    mapa2.obj1x = 6;
-    mapa2.obj1y = 1;
-    mapa2.obj2x = 7;
-    mapa2.obj2y = 2;
-    mapa2.obj3x = 8;
-    mapa2.obj3y = 1;
-    mapa2.mapa = 2;
-    return mapa2;
-} //funcao que carrega minha matriz com o mapa 2 para a matriz de jogo atual
-
-
-MAPA carregamapa3(){
-    MAPA mapa3;
-    mapa3.arquivo="mapas/mapa3.txt";
-    mapa3.carrega();
-    mapa3.x = 2;
-    mapa3.y = 9;
-    mapa3.obj1x = 1;
-    mapa3.obj1y = 6;
-    mapa3.obj2x = 2;
-    mapa3.obj2y = 6;
-    mapa3.obj3x = 3;
-    mapa3.obj3y = 6;
-    mapa3.mapa = 3;
-    return mapa3;
-} //funcao que carrega minha matriz com o mapa 3 para a matriz de jogo atual
-
-MAPA carregamapa(int mapa){
-    switch (mapa)
+void carregamapa(MAPA &mapajogo){
+    switch (mapajogo.mapa)
     {
         case 1:
-            return carregamapa1();
+            mapajogo.arquivo="mapas/mapa4.txt";
+            mapajogo.carregatudo();
+            break;
         case 2:
-            return carregamapa2();
+            mapajogo.arquivo="mapas/mapa5.txt";
+            mapajogo.carregatudo();
+            break;
         case 3:
-            return carregamapa3();
+            mapajogo.arquivo="mapas/mapa6.txt";
+            mapajogo.carregatudo();
+            break;
         default:
             break;
     }

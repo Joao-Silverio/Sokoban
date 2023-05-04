@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 
 using namespace std;
@@ -46,22 +47,40 @@ void sobre(){
     } while (tecla != 27);
 } //tela sobre o jogo desenvolvido
 
-void ranking(MAPA mapajogo){
+void escrever_ranking(MAPA mapajogo){
     ofstream arquivo;
     arquivo.open("ranking.txt", ios_base::app);
     if(arquivo.is_open()) {
-        arquivo << "Seu ranking no mapa " << mapajogo.mapa << " é " << mapajogo.cont << "\n";
+        arquivo << "Seu ranking no mapa " << mapajogo.nome << " e " << mapajogo.cont << "\n";
         arquivo.close();
         cout <<"\nRanking salvo com sucesso";
         return;
     }
     else {
-        cout << "Nao foi possível salvar seu ranking";
+        cout << "Nao foi possï¿½vel salvar seu ranking";
         return;
     }
     arquivo.close();
 }
 
+void ler_ranking(){
+    char tecla;
+    ifstream stream;
+    string frase;
+    stream.open("ranking.txt");
+
+    if (stream.is_open()){
+        getline(stream, frase);
+        cout << frase;
+        stream.close();
+    } else {
+        cout<<"nao foi possivel abrir esse arquivo";
+    }
+    cout <<"\nPressione ESC para voltar ao menu";
+    do{
+        tecla = getch();
+    }while (tecla != 27);
+}
 
 void gameWinScreen(MAPA &mapajogo){
     cout << "\nParabens voce venceu o jogo em " << mapajogo.cont << " movimentos";
@@ -70,7 +89,7 @@ void gameWinScreen(MAPA &mapajogo){
     int salvar;
     cin>>salvar;
     if(salvar == 1){
-        ranking(mapajogo);
+        escrever_ranking(mapajogo);
     }
     mapajogo.mapa = 0;
     cout << "\nPara retornar ao menu aperte ESC";

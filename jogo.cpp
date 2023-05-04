@@ -8,8 +8,10 @@ void jogo(MAPA &mapajogo){
     do{
         resetaCursor();
 
-        game = movimentos(mapajogo);
+        cout << mapajogo.nome << "\n";
 
+        game = movimentos(mapajogo);
+        
         obj = objetivo(mapajogo);
 
         if(obj == 3){
@@ -17,16 +19,28 @@ void jogo(MAPA &mapajogo){
         }
 
         imprimeMapa(mapajogo);
+        
         cout << "\nContador: " << mapajogo.cont;
 
     } while (game !=2);//fim do laço do jogo a partir do retorno 2 da funcao movimentos(apenas com o ESC)
     while(obj == 3){
-        gameWinScreen(mapajogo);
+        gameWinScreen(mapajogo); // tela de fim de jogo
         char tecla;
         tecla = getch();
 
-        if(tecla == 27){
-            obj = 2;
+        if(tecla == 27){ //se apertar a tecla ESC
+            obj = 2; //o jogo chega ao fim
         }
     }
 } // fim da funcao que funciona enquanto eu nao apertar ESC
+
+
+void continuar(MAPA &mapajogo){
+    if(mapajogo.mapa == 0){
+        mapajogo.mapa = NovoJogo();
+        carregamapa(mapajogo);
+        jogo(mapajogo); // comeca o jogo com as variaveis atualizadas
+    } else{
+        jogo(mapajogo); //chama a funcao jogo com as variaveis guardadas anteriormente
+    }
+}

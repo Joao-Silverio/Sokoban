@@ -18,23 +18,11 @@ int verifica(MAPA &mapajogo){
     if(flag == 0){
         return 3;
     }
-}
-
-void imprimeobjetivos(MAPA &mapajogo){
-    if(mapajogo.matriz[mapajogo.obj1x][mapajogo.obj1y] == 0){
-        mapajogo.matriz[mapajogo.obj1x][mapajogo.obj1y] = 3;
-    }
-    if(mapajogo.matriz[mapajogo.obj2x][mapajogo.obj2y] == 0){
-        mapajogo.matriz[mapajogo.obj2x][mapajogo.obj2y] = 3;
-    }
-    if(mapajogo.matriz[mapajogo.obj3x][mapajogo.obj3y] == 0){
-        mapajogo.matriz[mapajogo.obj3x][mapajogo.obj3y] = 3;
-    }
+    return 1;
 }
 
 int objetivo(MAPA &mapajogo){
     int verificar;
     verificar = verifica(mapajogo);  //verificar se todas as caixas estao no objetivo
-    imprimeobjetivos(mapajogo); //imprime os objetivos novamente se forem trocados para 0
     return verificar;
 } //chama a funcao objetivo de um mapa especifico
