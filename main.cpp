@@ -13,13 +13,10 @@ int main()
 
         switch (index)
         {
-            case 1:
-                mapajogo.mapa = NovoJogo(); //variavel recebe valor do mapa(1, 2, 3)
-                mapajogo.cont = 0;
-                carregamapa(mapajogo);
-                jogo(mapajogo); // comeca o jogo com as variaveis atualizadas
+            case 1: //funcao de inicio para escolher um mapa
+                inicio(mapajogo);
                 break;
-            case 2:
+            case 2: //funcao para continuar de onde parou
                 continuar(mapajogo);
                 break;
             case 3: //funcao ler ranking de jogadores salvos em um arquivo
@@ -37,4 +34,4 @@ int main()
 
     return 0;
 } //fim main
-//arquivos com todas as informacoes(precisa), salvar jogo em arquivo(precisa), voltar movimento para um numero exato.
+//salvar jogo em arquivo(precisa), voltar movimento para um numero exato.

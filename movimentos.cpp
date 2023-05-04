@@ -179,7 +179,7 @@ void voltarmovimento(MAPA &mapajogo){
 }
 
 
-int movimentos(MAPA &mapajogo) {
+bool movimentos(MAPA &mapajogo) {
     ///executa os movimentos
     if ( _kbhit() ){
         char tecla;
@@ -189,28 +189,28 @@ int movimentos(MAPA &mapajogo) {
             case 72: case 'w': ///cima
                 andarcima(mapajogo);
                 mapajogo.movant = 1;
-                return 1;
+                return true;
             break;
             case 80: case 's': ///baixo
                 andarbaixo(mapajogo);
                 mapajogo.movant = 2;
-                return 1;
+                return true;
             break;
             case 75:case 'a': ///esquerda
                 andaresquerda(mapajogo);
                 mapajogo.movant = 3;
-                return 1;
+                return true;
             break;
             case 77: case 'd': ///direita
                 andardireita(mapajogo);
                 mapajogo.movant = 4;
-                return 1;
+                return true;
             break;
             case 'l':
-                voltarmovimento(mapajogo);
+                voltarmovimento(mapajogo); //ARRUMAR
                 break;
             case 27:
-                return 2; //apenas retorna 2 se o input for ESC
+                return false; //apenas retorna 2 se o input for ESC
             break;
         }
     }

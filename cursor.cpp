@@ -24,3 +24,8 @@ void resetaCursor() {
     ///Posiciona a escrita no início do console
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
+
+void colorir (int cor) { //colorir a saida no console
+    HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(out, cor);
+}

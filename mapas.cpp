@@ -1,20 +1,22 @@
 #include <iostream>
 #include <conio.h>
 #include <fstream>
+#include "cursor.cpp"
+
 
 
 using namespace std;
 
 struct MAPA {
     char *arquivo;
-    int linha = 0 ,coluna = 0, x, y;
+    int linha,coluna = 0, x, y;
     int matriz[20][22];
     int mapa = 0;
     int cont = 0;
     int movant = 0;
     string nome;
 
-    void carregatudo(){
+    void carregatudo(){ //funcao carrega arquivo com as informacoes do mapa
         ifstream stream;
         stream.open(arquivo);
 
@@ -37,10 +39,7 @@ struct MAPA {
 
 };
 
-void colorir (int cor) {
-    HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(out, cor);
-}
+
 
 void imprimeMapa(MAPA mapajogo) {
     ///Imprime o jogo: mapa e personagem.
@@ -72,7 +71,7 @@ void imprimeMapa(MAPA mapajogo) {
         cout << "\nPressione L para voltar 1 movimento";
 } //fim da funcao que imprime meu mapa, com parede caixas e objetivos
 
-void carregamapa(MAPA &mapajogo){
+void carregamapa(MAPA &mapajogo){ //carrega mapa especifico com as informacoes fornecidas
     switch (mapajogo.mapa)
     {
         case 1:

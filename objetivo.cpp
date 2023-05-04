@@ -1,28 +1,22 @@
 #include "telas.cpp"
 
-int verifica(MAPA &mapajogo){
+bool objetivo(MAPA &mapajogo){
     bool flag = 0;
     for(int i=0; i<mapajogo.linha; i++){
         for(int j=0; j<mapajogo.coluna; j++){
             if(mapajogo.matriz[i][j] == 3){
                 flag = 1;
-                return 1;
+                return true;
                 break;
             }
         }
         if(flag ==1 ){
-            return 1;
+            return true;
             break;
         }
     }
     if(flag == 0){
-        return 3;
+        return false; //se nao houver objetivos sem caixa retorna falso
     }
-    return 1;
-}
-
-int objetivo(MAPA &mapajogo){
-    int verificar;
-    verificar = verifica(mapajogo);  //verificar se todas as caixas estao no objetivo
-    return verificar;
-} //chama a funcao objetivo de um mapa especifico
+    return true;
+} //chama a funcao objetivo

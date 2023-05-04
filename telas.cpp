@@ -85,7 +85,7 @@ void ler_ranking(){
 void gameWinScreen(MAPA &mapajogo){
     cout << "\nParabens voce venceu o jogo em " << mapajogo.cont << " movimentos";
     cout << "\nDeseja salvar seus movimentos? Digite 1\n";
-    cout << "Se nao deseja digite Digite 2\n";
+    cout << "Se nao deseja digite 2\n";
     int salvar;
     cin>>salvar;
     if(salvar == 1){
