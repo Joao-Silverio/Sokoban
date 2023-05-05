@@ -1,6 +1,5 @@
 #include <windows.h>
 
-
 void piscaCursor() {
     ///ALERTA: N�O MODIFICAR O TRECHO DE C�DIGO, A SEGUIR.
         //INICIO: COMANDOS PARA QUE O CURSOR N�O FIQUE PISCANDO NA TELA

@@ -1,5 +1,6 @@
 #include <conio.h>
 #include "objetivo.cpp"
+#include "voltarmov.cpp"
 
 void andarcima(MAPA &mapajogo) {
     if(mapajogo.matriz[mapajogo.x-1][mapajogo.y] == 1 ){
@@ -149,36 +150,6 @@ void andaresquerda(MAPA &mapajogo) {
     }
 } // fim da funcao que verifica se e possivel andar para esquerda
 
-
-void voltarmovimento(MAPA &mapajogo){
-    switch(mapajogo.movant){
-        case 1:
-            mapajogo.x++;
-            mapajogo.movant = 0;
-            mapajogo.cont--;
-            break;
-        case 2:
-            mapajogo.x--;
-            mapajogo.movant = 0;
-            mapajogo.cont--;
-            break;
-        case 3:
-            mapajogo.y++;
-            mapajogo.movant = 0;
-            mapajogo.cont--;
-            break;
-        case 4:
-            mapajogo.y--;
-            mapajogo.movant = 0;
-            mapajogo.cont--;
-            break;
-        default:
-            mapajogo.movant = 0;
-            break;
-    }
-}
-
-
 bool movimentos(MAPA &mapajogo) {
     ///executa os movimentos
     if ( _kbhit() ){
@@ -188,26 +159,26 @@ bool movimentos(MAPA &mapajogo) {
         {
             case 72: case 'w': ///cima
                 andarcima(mapajogo);
-                mapajogo.movant = 1;
+                salvarultimo(mapajogo);
                 return true;
             break;
             case 80: case 's': ///baixo
                 andarbaixo(mapajogo);
-                mapajogo.movant = 2;
+                salvarultimo(mapajogo);
                 return true;
             break;
             case 75:case 'a': ///esquerda
                 andaresquerda(mapajogo);
-                mapajogo.movant = 3;
+                salvarultimo(mapajogo);
                 return true;
             break;
             case 77: case 'd': ///direita
                 andardireita(mapajogo);
-                mapajogo.movant = 4;
+                salvarultimo(mapajogo);
                 return true;
             break;
             case 'l':
-                voltarmovimento(mapajogo); //ARRUMAR
+                voltarultimo(mapajogo); //ARRUMAR
                 break;
             case 27:
                 return false; //apenas retorna 2 se o input for ESC

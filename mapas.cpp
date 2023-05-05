@@ -3,8 +3,6 @@
 #include <fstream>
 #include "cursor.cpp"
 
-
-
 using namespace std;
 
 struct MAPA {
@@ -13,7 +11,7 @@ struct MAPA {
     int matriz[20][22];
     int mapa = 0;
     int cont = 0;
-    int movant = 0;
+    int movant = 30;
     string nome;
 
     void carregatudo(){ //funcao carrega arquivo com as informacoes do mapa
@@ -39,24 +37,36 @@ struct MAPA {
 
 };
 
-
-
 void imprimeMapa(MAPA mapajogo) {
     ///Imprime o jogo: mapa e personagem.
         for(int i=0;i<mapajogo.linha;i++){
             for(int j=0;j<mapajogo.coluna;j++){
                 if(i==mapajogo.x && j==mapajogo.y){
-                    colorir(10); //colorir faz com que a escrita a seguir seja com a cor n�mero 10
+                    colorir(14); //colorir faz com que a escrita a seguir seja com a cor n�mero 10
                     cout<<char(2); //personagem
                     colorir(7); //volta a cor da escrita ao default
                 } else {
                     switch (mapajogo.matriz[i][j]){
-                        case 0: cout<<" "; break; //caminho
-                        case 1: cout<<char(219); break; //parede
-                        case 2: cout <<char(4); break; // caixa
-                        case 3: cout <<char(176); break; //objetivo
-                        case 4:
+                        case 0: 
+                            cout<<" "; 
+                            break; //caminho
+                        case 1: 
+                            colorir(8);
+                            cout<<char(219);
+                            colorir(7); 
+                            break; //parede
+                        case 2: 
+                            colorir(6);
+                            cout <<char(4);
+                            colorir(7); 
+                            break; // caixa
+                        case 3: 
                             colorir(9);
+                            cout <<char(176);
+                            colorir(9); 
+                            break; //objetivo
+                        case 4:
+                            colorir(2);
                             cout <<char(4); 
                             colorir(7);
                             break; //caixa no objetivo

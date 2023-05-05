@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 
-
 using namespace std;
 
 void menu(int &index){
@@ -13,7 +12,6 @@ void menu(int &index){
     cout << "5 - Fim\n";
     cin >> index;
 } // tela menu inicial
-
 
 int NovoJogo(){
     int qualMapa;
@@ -48,8 +46,9 @@ void sobre(){
 } //tela sobre o jogo desenvolvido
 
 void escrever_ranking(MAPA mapajogo){
-    ofstream arquivo;
-    arquivo.open("ranking.txt", ios_base::app);
+    fstream arquivo;
+    string frase;
+    arquivo.open("ranking.txt");
     if(arquivo.is_open()) {
         arquivo << "Seu ranking no mapa " << mapajogo.nome << " e " << mapajogo.cont << "\n";
         arquivo.close();
@@ -70,8 +69,10 @@ void ler_ranking(){
     stream.open("ranking.txt");
 
     if (stream.is_open()){
-        getline(stream, frase);
-        cout << frase;
+        while(stream.eof() == false){
+            getline(stream, frase);
+            cout << frase << "\n";
+        }
         stream.close();
     } else {
         cout<<"nao foi possivel abrir esse arquivo";
@@ -94,4 +95,3 @@ void gameWinScreen(MAPA &mapajogo){
     mapajogo.mapa = 0;
     cout << "\nPara retornar ao menu aperte ESC";
 } // mensagem de game Win
-

@@ -7,8 +7,6 @@ void jogo(MAPA &mapajogo){
     do{
         resetaCursor();
 
-        cout << mapajogo.nome << "\n";
-
         game = movimentos(mapajogo);
         
         obj = objetivo(mapajogo);

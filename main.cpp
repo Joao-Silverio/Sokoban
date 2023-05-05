@@ -6,6 +6,7 @@ int main()
     MAPA mapajogo;
     int index;
     int tecla;
+    apagararquivo();
 
     do
     {
