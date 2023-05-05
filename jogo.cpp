@@ -8,7 +8,7 @@ void jogo(MAPA &mapajogo){
         resetaCursor();
 
         game = movimentos(mapajogo);
-        
+
         obj = objetivo(mapajogo);
 
         if(obj == false){
@@ -16,7 +16,7 @@ void jogo(MAPA &mapajogo){
         }
 
         imprimeMapa(mapajogo);
-        
+
         cout << "\nContador: " << mapajogo.cont;
 
     } while (game == true);//fim do laço do jogo a partir do retorno 2 da funcao movimentos(apenas com o ESC)
@@ -33,6 +33,7 @@ void jogo(MAPA &mapajogo){
 } // fim da funcao que funciona enquanto eu nao apertar ESC
 
 void inicio(MAPA &mapajogo){ //funcao inicio, com menu de escolha de mapa
+    apagarmovimentos();
     mapajogo.mapa = NovoJogo(); //variavel recebe valor do mapa(1, 2, 3)
     mapajogo.cont = 0;
     carregamapa(mapajogo);

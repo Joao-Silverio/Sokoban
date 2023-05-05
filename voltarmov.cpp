@@ -1,12 +1,7 @@
-void apagararquivo(){
-    ofstream arquivo;
-    arquivo.open("movimentos.txt");
-    if (arquivo.is_open()){
-        arquivo << "\n";
-        arquivo.close();
-    } else {
-        cout<<"nao foi possivel abrir esse arquivo";
-    }
+#include <stdio.h>
+
+void apagarmovimentos(){
+    remove("movimentos.txt");
 }
 
 void voltarultimo(MAPA &mapajogo){
@@ -31,11 +26,10 @@ void voltarultimo(MAPA &mapajogo){
                     }
                 }
                 mapajogo.cont = mov - 30;
-                arquivo << "Ultimo movimento\n";
-                arquivo.close();        
-            } 
+                arquivo.close();
+            }
         }
-        
+
     } else {
         cout<<"nao foi possivel abrir esse arquivo";
     }
@@ -52,7 +46,7 @@ void salvarultimo(MAPA mapajogo){
         for(int i=0; i<mapajogo.linha; i++){
             for(int j=0; j<mapajogo.coluna; j++){
                 arquivo << mapajogo.matriz[i][j] << " ";
-            }   
+            }
             arquivo << endl;
         }
         arquivo.close();
