@@ -48,7 +48,7 @@ void sobre(){
 void escrever_ranking(MAPA mapajogo){
     fstream arquivo;
     string frase;
-    arquivo.open("ranking.txt");
+    arquivo.open("ranking.txt", ios_base::app);
     if(arquivo.is_open()) {
         arquivo << "Seu ranking no mapa " << mapajogo.nome << " e " << mapajogo.cont << "\n";
         arquivo.close();

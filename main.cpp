@@ -6,6 +6,7 @@ int main()
     MAPA mapajogo;
     int index;
     int tecla;
+    string nome;
 
     do
     {
@@ -27,6 +28,7 @@ int main()
                 break;
             case 5:
                 tecla = 5; // dar fim ao programa
+                break;
             default:
                 break;
         }
