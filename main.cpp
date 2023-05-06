@@ -37,3 +37,6 @@ int main()
     return 0;
 } //fim main
 //salvar jogo em arquivo(precisa), voltar movimento para um numero exato.
+
+//funcao de carregar movimento como um novo jogo, carrega mapa dnv e realiza os movimentos que foram feitos ate o movimento de escolha
+//ranking no csv com funcao de ordenar é mais facil, mas por desafio fazer no c++ com o txt

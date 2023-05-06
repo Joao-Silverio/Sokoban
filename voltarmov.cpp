@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void apagararquivos(){
+void apagarmovimentos(){
     remove("movimentos.txt");
 }
 

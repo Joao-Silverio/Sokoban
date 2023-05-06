@@ -33,7 +33,7 @@ void jogo(MAPA &mapajogo){
 } // fim da funcao que funciona enquanto eu nao apertar ESC
 
 void inicio(MAPA &mapajogo){ //funcao inicio, com menu de escolha de mapa
-    apagararquivos();
+    apagarmovimentos();
     mapajogo.mapa = NovoJogo(); //variavel recebe valor do mapa(1, 2, 3)
     mapajogo.cont = 0;
     carregamapa(mapajogo);
