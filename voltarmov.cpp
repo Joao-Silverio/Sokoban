@@ -1,12 +1,7 @@
-void apagararquivo(){
-    ofstream arquivo;
-    arquivo.open("movimentos.txt");
-    if (arquivo.is_open()){
-        arquivo << "\n";
-        arquivo.close();
-    } else {
-        cout<<"nao foi possivel abrir esse arquivo";
-    }
+#include <stdio.h>
+
+void apagarmovimentos(){
+    remove("movimentos.txt");
 }
 
 void voltarultimo(MAPA &mapajogo){
@@ -17,11 +12,24 @@ void voltarultimo(MAPA &mapajogo){
     fstream arquivo;
     arquivo.open("movimentos.txt");
     if (arquivo.is_open()){
-        for(int i = 0; i <= mov; i++){
-            arquivo >> frase;
+        while (arquivo.eof() == false)
+        {
+            //getline(arquivo, aux);
+            arquivo >> aux;
+            if(mov == aux){
+                arquivo>>mapajogo.x;
+                arquivo>>mapajogo.y;
+                for(int i=0; i<mapajogo.linha; i++){
+                    for(int j=0; j<mapajogo.coluna; j++){
+                        arquivo>>mapajogo.matriz[i][j];
+                    }
+                }
+                mapajogo.cont = mov - 30;
+                arquivo << "Ultimo movimento\n";
+                arquivo.close();        
+            } 
         }
-        arquivo.close();
-        cout << frase;
+        
     } else {
         cout<<"nao foi possivel abrir esse arquivo";
     }
@@ -31,7 +39,15 @@ void salvarultimo(string mov){
     ofstream arquivo;
     arquivo.open("movimentos.txt", ios::app);
     if(arquivo.is_open()) {
-        arquivo << mov << "\n";
+        arquivo << mapajogo.cont + 30 << "\n";
+        arquivo << mapajogo.x << " ";
+        arquivo << mapajogo.y << "\n";
+        for(int i=0; i<mapajogo.linha; i++){
+            for(int j=0; j<mapajogo.coluna; j++){
+                arquivo << mapajogo.matriz[i][j] << " ";
+            }   
+            arquivo << endl;
+        }
         arquivo.close();
     }
     else {

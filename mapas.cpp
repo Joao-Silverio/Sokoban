@@ -28,7 +28,7 @@ struct MAPA {
                     stream>>matriz[i][j];
                 }
             }
-            stream>>nome;            
+            getline(stream, nome);
             stream.close();
         } else {
             cout<<"nao foi possivel abrir esse arquivo";
@@ -47,27 +47,27 @@ void imprimeMapa(MAPA mapajogo) {
                     colorir(7); //volta a cor da escrita ao default
                 } else {
                     switch (mapajogo.matriz[i][j]){
-                        case 0: 
-                            cout<<" "; 
+                        case 0:
+                            cout<<" ";
                             break; //caminho
-                        case 1: 
+                        case 1:
                             colorir(8);
                             cout<<char(219);
-                            colorir(7); 
+                            colorir(7);
                             break; //parede
-                        case 2: 
+                        case 2:
                             colorir(6);
                             cout <<char(4);
-                            colorir(7); 
+                            colorir(7);
                             break; // caixa
-                        case 3: 
+                        case 3:
                             colorir(9);
                             cout <<char(176);
-                            colorir(9); 
+                            colorir(9);
                             break; //objetivo
                         case 4:
                             colorir(2);
-                            cout <<char(4); 
+                            cout <<char(4);
                             colorir(7);
                             break; //caixa no objetivo
                         //default: cout<<"-"; //erro
