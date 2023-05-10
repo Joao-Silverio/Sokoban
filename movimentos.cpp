@@ -18,24 +18,29 @@ void andarcima(MAPA &mapajogo) {
         mapajogo.matriz[mapajogo.x-2][mapajogo.y] = 2;
         mapajogo.x--;
         mapajogo.cont++;
+        salvarultimo("w");
     } else if (mapajogo.matriz[mapajogo.x-1][mapajogo.y] == 2 && mapajogo.matriz[mapajogo.x-2][mapajogo.y] == 3){ //Se for caixa na esquerda, e um objetivo depois
         mapajogo.matriz[mapajogo.x-1][mapajogo.y] = 0;
         mapajogo.matriz[mapajogo.x-2][mapajogo.y] = 4;
         mapajogo.x--;
         mapajogo.cont++;
+        salvarultimo("w");
     }else if (mapajogo.matriz[mapajogo.x-1][mapajogo.y] == 4 && mapajogo.matriz[mapajogo.x-2][mapajogo.y] == 0){ //Se for caixa em um objetivo, e nada depois
         mapajogo.matriz[mapajogo.x-1][mapajogo.y] = 3;
         mapajogo.matriz[mapajogo.x-2][mapajogo.y] = 2;
         mapajogo.x--;
         mapajogo.cont++;
+        salvarultimo("w");
     }else if (mapajogo.matriz[mapajogo.x-1][mapajogo.y] == 4 && mapajogo.matriz[mapajogo.x-2][mapajogo.y] == 3){ //Se for caixa em um objetivo, e um objetivo depois
         mapajogo.matriz[mapajogo.x-1][mapajogo.y] = 3;
         mapajogo.matriz[mapajogo.x-2][mapajogo.y] = 4;
         mapajogo.x--;
         mapajogo.cont++;
+        salvarultimo("w");
     }else {
         mapajogo.x--;
         mapajogo.cont++;
+        salvarultimo("w");
     }
 } // fim da funcao que verifica se e possivel andar para cima
 
@@ -55,24 +60,29 @@ void andarbaixo(MAPA &mapajogo) {
         mapajogo.matriz[mapajogo.x+2][mapajogo.y] = 2;
         mapajogo.x++;
         mapajogo.cont++;
+        salvarultimo("s");
     } else if (mapajogo.matriz[mapajogo.x+1][mapajogo.y] == 2 && mapajogo.matriz[mapajogo.x+2][mapajogo.y] == 3){ //Se for caixa na esquerda, e um objetivo depois
         mapajogo.matriz[mapajogo.x+1][mapajogo.y] = 0;
         mapajogo.matriz[mapajogo.x+2][mapajogo.y] = 4;
         mapajogo.x++;
         mapajogo.cont++;
+        salvarultimo("s");
     }else if (mapajogo.matriz[mapajogo.x+1][mapajogo.y] == 4 && mapajogo.matriz[mapajogo.x+2][mapajogo.y] == 0){ //Se for caixa em um objetivo, e nada depois
         mapajogo.matriz[mapajogo.x+1][mapajogo.y] = 3;
         mapajogo.matriz[mapajogo.x+2][mapajogo.y] = 2;
         mapajogo.x++;
         mapajogo.cont++;
+        salvarultimo("s");
     }else if (mapajogo.matriz[mapajogo.x+1][mapajogo.y] == 4 && mapajogo.matriz[mapajogo.x+2][mapajogo.y] == 3){ //Se for caixa em um objetivo, e um objetivo depois
         mapajogo.matriz[mapajogo.x+1][mapajogo.y] = 3;
         mapajogo.matriz[mapajogo.x+2][mapajogo.y] = 4;
         mapajogo.x++;
         mapajogo.cont++;
+        salvarultimo("s");
     }else {
         mapajogo.x++;
         mapajogo.cont++;
+        salvarultimo("s");
     }
 } // fim da funcao que verifica se e possivel andar para baixo
 
@@ -92,24 +102,29 @@ void andardireita(MAPA &mapajogo) {
         mapajogo.matriz[mapajogo.x][mapajogo.y+2] = 2;
         mapajogo.y++;
         mapajogo.cont++;
+        salvarultimo("d");
     } else if (mapajogo.matriz[mapajogo.x][mapajogo.y+1] == 2 && mapajogo.matriz[mapajogo.x][mapajogo.y+2] == 3){ //Se for caixa na esquerda, e um objetivo depois
         mapajogo.matriz[mapajogo.x][mapajogo.y+1] = 0;
         mapajogo.matriz[mapajogo.x][mapajogo.y+2] = 4;
         mapajogo.y++;
         mapajogo.cont++;
+        salvarultimo("d");
     }else if (mapajogo.matriz[mapajogo.x][mapajogo.y+1] == 4 && mapajogo.matriz[mapajogo.x][mapajogo.y+2] == 0){ //Se for caixa em um objetivo, e nada depois
         mapajogo.matriz[mapajogo.x][mapajogo.y+1] = 3;
         mapajogo.matriz[mapajogo.x][mapajogo.y+2] = 2;
         mapajogo.y++;
         mapajogo.cont++;
+        salvarultimo("d");
     }else if (mapajogo.matriz[mapajogo.x][mapajogo.y+1] == 4 && mapajogo.matriz[mapajogo.x][mapajogo.y+2] == 3){ //Se for caixa em um objetivo, e um objetivo depois
         mapajogo.matriz[mapajogo.x][mapajogo.y+1] = 3;
         mapajogo.matriz[mapajogo.x][mapajogo.y+2] = 4;
         mapajogo.y++;
         mapajogo.cont++;
+        salvarultimo("d");
     }else {
         mapajogo.y++;
         mapajogo.cont++;
+        salvarultimo("d");
     }
 }// fim da funcao que verifica se e possivel andar para direita
 
@@ -129,24 +144,29 @@ void andaresquerda(MAPA &mapajogo) {
         mapajogo.matriz[mapajogo.x][mapajogo.y-2] = 2;
         mapajogo.y--;
         mapajogo.cont++;
+        salvarultimo("a");
     } else if (mapajogo.matriz[mapajogo.x][mapajogo.y-1] == 2 && mapajogo.matriz[mapajogo.x][mapajogo.y-2] == 3){ //Se for caixa na esquerda, e um objetivo depois
         mapajogo.matriz[mapajogo.x][mapajogo.y-1] = 0;
         mapajogo.matriz[mapajogo.x][mapajogo.y-2] = 4;
         mapajogo.y--;
         mapajogo.cont++;
+        salvarultimo("a");
     }else if (mapajogo.matriz[mapajogo.x][mapajogo.y-1] == 4 && mapajogo.matriz[mapajogo.x][mapajogo.y-2] == 0){ //Se for caixa em um objetivo, e nada depois
         mapajogo.matriz[mapajogo.x][mapajogo.y-1] = 3;
         mapajogo.matriz[mapajogo.x][mapajogo.y-2] = 2;
         mapajogo.y--;
         mapajogo.cont++;
+        salvarultimo("a");
     }else if (mapajogo.matriz[mapajogo.x][mapajogo.y-1] == 4 && mapajogo.matriz[mapajogo.x][mapajogo.y-2] == 3){ //Se for caixa em um objetivo, e um objetivo depois
         mapajogo.matriz[mapajogo.x][mapajogo.y-1] = 3;
         mapajogo.matriz[mapajogo.x][mapajogo.y-2] = 4;
         mapajogo.y--;
         mapajogo.cont++;
+        salvarultimo("a");
     }else {
         mapajogo.y--;
         mapajogo.cont++;
+        salvarultimo("s");
     }
 } // fim da funcao que verifica se e possivel andar para esquerda
 
@@ -159,22 +179,18 @@ bool movimentos(MAPA &mapajogo) {
         {
             case 72: case 'w': ///cima
                 andarcima(mapajogo);
-                salvarultimo(mapajogo);
                 return true;
             break;
             case 80: case 's': ///baixo
                 andarbaixo(mapajogo);
-                salvarultimo(mapajogo);
                 return true;
             break;
             case 75:case 'a': ///esquerda
                 andaresquerda(mapajogo);
-                salvarultimo(mapajogo);
                 return true;
             break;
             case 77: case 'd': ///direita
                 andardireita(mapajogo);
-                salvarultimo(mapajogo);
                 return true;
             break;
             case 'l':
