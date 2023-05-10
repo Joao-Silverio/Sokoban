@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "movimentos.hpp"
 
 void apagarmovimentos(){
     remove("movimentos.txt");
@@ -6,30 +7,35 @@ void apagarmovimentos(){
 
 void voltarultimo(MAPA &mapajogo){
     int mov;
-    string frase;
-    cout << "\n Para quual movimento deseja voltar";
+    char movimento;
+    cout << "\n Para qual movimento deseja voltar";
     cin >> mov;
+    mapajogo.carregatudo();
     fstream arquivo;
     arquivo.open("movimentos.txt");
     if (arquivo.is_open()){
-        while (arquivo.eof() == false)
-        {
-            //getline(arquivo, aux);
-            arquivo >> aux;
-            if(mov == aux){
-                arquivo>>mapajogo.x;
-                arquivo>>mapajogo.y;
-                for(int i=0; i<mapajogo.linha; i++){
-                    for(int j=0; j<mapajogo.coluna; j++){
-                        arquivo>>mapajogo.matriz[i][j];
-                    }
-                }
-                mapajogo.cont = mov - 30;
-                arquivo << "Ultimo movimento\n";
-                arquivo.close();        
-            } 
-        }
-        
+       for (int i = 0; i <= mov; i++)
+       {
+            arquivo >> movimento;
+            switch (movimento)
+            {
+            case 'w':
+                andarcima(mapajogo);
+                break;
+            case 's':
+                andarbaixo(mapajogo);
+                break;
+            case 'a':
+                andaresquerda(mapajogo);
+                break;
+            case 'd':
+                andardireita(mapajogo);
+                break;
+            default:
+                break;
+            }
+       }
+       arquivo.close();
     } else {
         cout<<"nao foi possivel abrir esse arquivo";
     }
@@ -39,15 +45,7 @@ void salvarultimo(string mov){
     ofstream arquivo;
     arquivo.open("movimentos.txt", ios::app);
     if(arquivo.is_open()) {
-        arquivo << mapajogo.cont + 30 << "\n";
-        arquivo << mapajogo.x << " ";
-        arquivo << mapajogo.y << "\n";
-        for(int i=0; i<mapajogo.linha; i++){
-            for(int j=0; j<mapajogo.coluna; j++){
-                arquivo << mapajogo.matriz[i][j] << " ";
-            }   
-            arquivo << endl;
-        }
+        arquivo << "\n" << mov;
         arquivo.close();
     }
     else {

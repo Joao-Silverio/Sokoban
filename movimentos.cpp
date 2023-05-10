@@ -1,6 +1,7 @@
 #include <conio.h>
 #include "objetivo.cpp"
 #include "voltarmov.cpp"
+#include "movimentos.hpp"
 
 void andarcima(MAPA &mapajogo) {
     if(mapajogo.matriz[mapajogo.x-1][mapajogo.y] == 1 ){
@@ -166,9 +167,11 @@ void andaresquerda(MAPA &mapajogo) {
     }else {
         mapajogo.y--;
         mapajogo.cont++;
-        salvarultimo("s");
+        salvarultimo("a");
     }
 } // fim da funcao que verifica se e possivel andar para esquerda
+//how to make functions to work in 2 files?
+
 
 bool movimentos(MAPA &mapajogo) {
     ///executa os movimentos
