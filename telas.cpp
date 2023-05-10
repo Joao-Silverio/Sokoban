@@ -50,7 +50,12 @@ void escrever_ranking(MAPA mapajogo){
     string frase;
     arquivo.open("ranking.txt", ios_base::app);
     if(arquivo.is_open()) {
-        arquivo << "Seu ranking no mapa " << mapajogo.nome << " e " << mapajogo.cont << "\n";
+        arquivo >> frase;
+        if(frase < mapajogo.nome){
+
+        } else{
+            arquivo << mapajogo.nome << "  " << mapajogo.cont << "\n";
+        }
         arquivo.close();
         cout <<"\nRanking salvo com sucesso";
         return;

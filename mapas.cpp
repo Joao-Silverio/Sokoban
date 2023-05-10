@@ -11,7 +11,6 @@ struct MAPA {
     int matriz[20][22];
     int mapa = 0;
     int cont = 0;
-    int movant = 30;
     string nome;
 
     void carregatudo(){ //funcao carrega arquivo com as informacoes do mapa

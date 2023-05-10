@@ -5,8 +5,6 @@ int main()
     piscaCursor();
     MAPA mapajogo;
     int index;
-    int tecla;
-    string nome;
 
     do
     {
@@ -26,17 +24,12 @@ int main()
             case 4:
                 sobre(); // funcao sobre o programa
                 break;
-            case 5:
-                tecla = 5; // dar fim ao programa
-                break;
             default:
                 break;
         }
-    } while (tecla != 5);
+    } while (index != 5);
 
     return 0;
 } //fim main
-//salvar jogo em arquivo(precisa), voltar movimento para um numero exato.
 
-//funcao de carregar movimento como um novo jogo, carrega mapa dnv e realiza os movimentos que foram feitos ate o movimento de escolha
 //ranking no csv com funcao de ordenar é mais facil, mas por desafio fazer no c++ com o txt

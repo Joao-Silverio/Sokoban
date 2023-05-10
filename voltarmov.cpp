@@ -5,20 +5,12 @@ void apagarmovimentos(){
     remove("movimentos.txt");
 }
 
-void voltarultimo(MAPA &mapajogo){
-    int mov;
-    char movimento;
-    cout << "\n Para qual movimento deseja voltar";
-    cin >> mov;
-    mapajogo.carregatudo();
-    fstream arquivo;
-    arquivo.open("movimentos.txt");
-    if (arquivo.is_open()){
-       for (int i = 0; i <= mov; i++)
-       {
-            arquivo >> movimento;
-            switch (movimento)
-            {
+void LoadMovimentos(MAPA &mapajogo, char *vet, int tam){
+    system("Cls");
+    mapajogo.cont = 0;
+    for(int i = 0; i < tam; i++){
+        switch (vet[i])
+        {
             case 'w':
                 andarcima(mapajogo);
                 break;
@@ -33,9 +25,29 @@ void voltarultimo(MAPA &mapajogo){
                 break;
             default:
                 break;
-            }
+        }
+    }
+}
+
+void voltarultimo(MAPA &mapajogo){
+    system("Cls");
+    int mov;
+    cout << "Para qual movimento deseja voltar \n";
+    cout << "Voce esta no movimento: " << mapajogo.cont << " \n";
+    cin >> mov;
+    char *vet;
+    vet = new char[mov];
+    mapajogo.carregatudo();
+    fstream arquivo;
+    arquivo.open("movimentos.txt");
+    if (arquivo.is_open()){
+       for (int i = 0; i <= mov; i++)
+       {
+            arquivo >> vet[i];
        }
-       arquivo.close();
+        arquivo.close();
+        apagarmovimentos();
+        LoadMovimentos(mapajogo, vet, mov);
     } else {
         cout<<"nao foi possivel abrir esse arquivo";
     }
