@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include "ranking.cpp"
 
 using namespace std;
 
@@ -21,7 +22,7 @@ int NovoJogo(){
     cout << "3- loma 60 (4)\n";
     cout << "4- Aleatorio\n";
     cin >> qualMapa;
-    if(qualMapa == 4){
+    if(qualMapa >= 4){
         qualMapa = rand()%3 + 1;
     }
     return qualMapa;
@@ -45,48 +46,6 @@ void sobre(){
     } while (tecla != 27);
 } //tela sobre o jogo desenvolvido
 
-void escrever_ranking(MAPA mapajogo){
-    fstream arquivo;
-    string frase;
-    arquivo.open("ranking.txt", ios_base::app);
-    if(arquivo.is_open()) {
-        arquivo >> frase;
-        if(frase < mapajogo.nome){
-
-        } else{
-            arquivo << mapajogo.nome << "  " << mapajogo.cont << "\n";
-        }
-        arquivo.close();
-        cout <<"\nRanking salvo com sucesso";
-        return;
-    }
-    else {
-        cout << "Nao foi poss�vel salvar seu ranking";
-        return;
-    }
-    arquivo.close();
-}
-
-void ler_ranking(){
-    char tecla;
-    ifstream stream;
-    string frase;
-    stream.open("ranking.txt");
-
-    if (stream.is_open()){
-        while(stream.eof() == false){
-            getline(stream, frase);
-            cout << frase << "\n";
-        }
-        stream.close();
-    } else {
-        cout<<"nao foi possivel abrir esse arquivo";
-    }
-    cout <<"\nPressione ESC para voltar ao menu";
-    do{
-        tecla = getch();
-    }while (tecla != 27);
-}
 
 void gameWinScreen(MAPA &mapajogo){
     cout << "\nParabens voce venceu o jogo em " << mapajogo.cont << " movimentos";
@@ -95,7 +54,7 @@ void gameWinScreen(MAPA &mapajogo){
     int salvar;
     cin>>salvar;
     if(salvar == 1){
-        escrever_ranking(mapajogo);
+        ordena_ranking(mapajogo);
     }
     mapajogo.mapa = 0;
     cout << "\nPara retornar ao menu aperte ESC";

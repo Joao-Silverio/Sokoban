@@ -11,7 +11,6 @@ struct MAPA {
     int matriz[20][22];
     int mapa = 0;
     int cont = 0;
-    string nome;
 
     void carregatudo(){ //funcao carrega arquivo com as informacoes do mapa
         ifstream stream;
@@ -27,7 +26,6 @@ struct MAPA {
                     stream>>matriz[i][j];
                 }
             }
-            getline(stream, nome);
             stream.close();
         } else {
             cout<<"nao foi possivel abrir esse arquivo";

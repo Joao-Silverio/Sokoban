@@ -10,6 +10,8 @@ void andarcima(MAPA &mapajogo) {
         return;
     } else if(mapajogo.matriz[mapajogo.x-1][mapajogo.y] == 2 && mapajogo.matriz[mapajogo.x-2][mapajogo.y] == 2) { //Se for caixa na esquerda, e uma caixa depois
         return;
+    } else if(mapajogo.matriz[mapajogo.x-1][mapajogo.y] == 2 && mapajogo.matriz[mapajogo.x-2][mapajogo.y] == 4) { //Se for caixa, e uma caixa no objetivo depois
+        return;
     } else if (mapajogo.matriz[mapajogo.x-1][mapajogo.y] == 4 && mapajogo.matriz[mapajogo.x-2][mapajogo.y] == 1){ //Se for caixa em um objetivo, e uma parede depois
         return;
     }else if (mapajogo.matriz[mapajogo.x-1][mapajogo.y] == 4 && mapajogo.matriz[mapajogo.x-2][mapajogo.y] == 2){ //Se for caixa em um objetivo, e uma caixa depois
@@ -51,6 +53,8 @@ void andarbaixo(MAPA &mapajogo) {
     } else if(mapajogo.matriz[mapajogo.x+1][mapajogo.y] == 2 && mapajogo.matriz[mapajogo.x+2][mapajogo.y] == 1) { //Se for caixa na esquerda, e uma parede depois
         return;
     } else if(mapajogo.matriz[mapajogo.x+1][mapajogo.y] == 2 && mapajogo.matriz[mapajogo.x+2][mapajogo.y] == 2) { //Se for caixa na esquerda, e uma caixa depois
+        return;
+    } else if(mapajogo.matriz[mapajogo.x+1][mapajogo.y] == 2 && mapajogo.matriz[mapajogo.x+2][mapajogo.y] == 4) { //Se for caixa, e uma caixa no objetivo depois
         return;
     } else if (mapajogo.matriz[mapajogo.x+1][mapajogo.y] == 4 && mapajogo.matriz[mapajogo.x+2][mapajogo.y] == 1){ //Se for caixa em um objetivo, e uma parede depois
         return;
@@ -94,6 +98,8 @@ void andardireita(MAPA &mapajogo) {
         return;
     } else if(mapajogo.matriz[mapajogo.x][mapajogo.y+1] == 2 && mapajogo.matriz[mapajogo.x][mapajogo.y+2] == 2) { //Se for caixa na esquerda, e uma caixa depois
         return;
+    } else if(mapajogo.matriz[mapajogo.x][mapajogo.y+1] == 2 && mapajogo.matriz[mapajogo.x][mapajogo.y+2] == 4) { //Se for caixa, e uma caixa no objetivo depois
+        return;
     } else if (mapajogo.matriz[mapajogo.x][mapajogo.y+1] == 4 && mapajogo.matriz[mapajogo.x][mapajogo.y+2] == 1){ //Se for caixa em um objetivo, e uma parede depois
         return;
     }else if (mapajogo.matriz[mapajogo.x][mapajogo.y+1] == 4 && mapajogo.matriz[mapajogo.x][mapajogo.y+2] == 2){ //Se for caixa em um objetivo, e uma caixa depois
@@ -135,6 +141,8 @@ void andaresquerda(MAPA &mapajogo) {
     } else if(mapajogo.matriz[mapajogo.x][mapajogo.y-1] == 2 && mapajogo.matriz[mapajogo.x][mapajogo.y-2] == 1) { //Se for caixa na esquerda, e uma parede depois
         return;
     } else if(mapajogo.matriz[mapajogo.x][mapajogo.y-1] == 2 && mapajogo.matriz[mapajogo.x][mapajogo.y-2] == 2) { //Se for caixa na esquerda, e uma caixa depois
+        return;
+    } else if(mapajogo.matriz[mapajogo.x][mapajogo.y-1] == 2 && mapajogo.matriz[mapajogo.x][mapajogo.y-2] == 4) { //Se for caixa , e uma caixa no objetivo depois
         return;
     } else if (mapajogo.matriz[mapajogo.x][mapajogo.y-1] == 4 && mapajogo.matriz[mapajogo.x][mapajogo.y-2] == 1){ //Se for caixa em um objetivo, e uma parede depois
         return;
