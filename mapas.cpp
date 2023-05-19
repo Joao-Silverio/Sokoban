@@ -50,7 +50,7 @@ void imprimeMapa(MAPA mapajogo) {
                             break; //caminho
                         case 1:
                             colorir(8);
-                            cout<<char(2);
+                            cout<<char(219);
                             colorir(7);
                             break; //parede
                         case 2:
@@ -60,7 +60,7 @@ void imprimeMapa(MAPA mapajogo) {
                             break; // caixa
                         case 3:
                             colorir(9);
-                            cout <<char(1);
+                            cout <<char(176);
                             colorir(9);
                             break; //objetivo
                         case 4:

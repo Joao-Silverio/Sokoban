@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <fstream>
 #include <string>
+#include <sstream>
 
 int tamanho_ranking(){
     fstream arquivo;
@@ -50,11 +51,9 @@ void ordena_ranking(MAPA mapajogo){
             i++;
         }
 
-        frase = "MAPA ";
-        frase += to_string(mapajogo.mapa);
-        frase += ": ";
-        frase += to_string(mapajogo.cont);
-        frase += "\n";
+        stringstream ss;
+        ss << "MAPA " << mapajogo.mapa << ": " << mapajogo.cont << "\n";
+        frase = ss.str();
         vet[i] = frase;
 
         for(int j=0;j<tam;j++){
