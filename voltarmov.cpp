@@ -61,7 +61,7 @@ void salvarultimo(string mov){
         arquivo.close();
     }
     else {
-        cout << "Nao foi poss�vel salvar seu ranking";
+        cout << "Nao foi poss�vel salvar seu movimento";
         return;
     }
     arquivo.close();

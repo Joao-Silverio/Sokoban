@@ -1,5 +1,7 @@
 #include <algorithm>
 #include <stdio.h>
+#include <fstream>
+#include <string>
 
 int tamanho_ranking(){
     fstream arquivo;
@@ -15,36 +17,21 @@ int tamanho_ranking(){
         return tam;
     }
     else {
-        cout << "Nao foi poss�vel salvar seu ranking";
+        cout << "Nao existe ranking salvo";
         return tam;
     }
     arquivo.close();
-
+    return tam;
 }
 
 void imprime_ranking(string *vet, int tam){
-    fstream arquivo;
+    ofstream arquivo;
     arquivo.open("ranking.txt");
     if(arquivo.is_open()) {
         for(int i=0; i<tam;i++){
             arquivo << vet[i] << "\n";
         }
         arquivo.close();
-    }
-}
-
-void escreve_ranking(MAPA mapajogo){
-    fstream arquivo;
-    arquivo.open("ranking.txt", ios_base::app);
-    if(arquivo.is_open()) {
-        arquivo << "MAPA " << mapajogo.mapa << ": " << mapajogo.cont << "\n";
-
-        arquivo.close();
-        return;
-    }
-    else {
-        cout << "Nao foi poss�vel salvar seu ranking";
-        return;
     }
 }
 
@@ -55,15 +42,20 @@ void ordena_ranking(MAPA mapajogo){
     tam = tamanho_ranking() + 1;
     string *vet, temp;
     vet = new string[tam];
-    //escreve_ranking(mapajogo);
     arquivo.open("ranking.txt");
     if(arquivo.is_open()) {
         while(arquivo.eof() == false){
             getline(arquivo, frase);
             vet[i] = frase;
             i++;
-
         }
+
+        frase = "MAPA ";
+        frase += to_string(mapajogo.mapa);
+        frase += ": ";
+        frase += to_string(mapajogo.cont);
+        frase += "\n";
+        vet[i] = frase;
 
         for(int j=0;j<tam;j++){
             for(i=0;i<tam - 1 ;i++){

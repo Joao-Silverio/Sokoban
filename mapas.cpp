@@ -1,6 +1,8 @@
 #include <iostream>
 #include <conio.h>
 #include <fstream>
+#include <windows.h>
+#include <string>
 #include "cursor.cpp"
 
 using namespace std;
@@ -31,7 +33,6 @@ struct MAPA {
             cout<<"nao foi possivel abrir esse arquivo";
         }
     }
-
 };
 
 void imprimeMapa(MAPA mapajogo) {
@@ -49,7 +50,7 @@ void imprimeMapa(MAPA mapajogo) {
                             break; //caminho
                         case 1:
                             colorir(8);
-                            cout<<char(219);
+                            cout<<char(2);
                             colorir(7);
                             break; //parede
                         case 2:
@@ -59,7 +60,7 @@ void imprimeMapa(MAPA mapajogo) {
                             break; // caixa
                         case 3:
                             colorir(9);
-                            cout <<char(176);
+                            cout <<char(1);
                             colorir(9);
                             break; //objetivo
                         case 4:
@@ -82,15 +83,15 @@ void carregamapa(MAPA &mapajogo){ //carrega mapa especifico com as informacoes f
     switch (mapajogo.mapa)
     {
         case 1:
-            mapajogo.arquivo="mapas/mapa4.txt";
+            mapajogo.arquivo = "mapas/mapa4.txt";
             mapajogo.carregatudo();
             break;
         case 2:
-            mapajogo.arquivo="mapas/mapa5.txt";
+            mapajogo.arquivo = "mapas/mapa5.txt";
             mapajogo.carregatudo();
             break;
         case 3:
-            mapajogo.arquivo="mapas/mapa6.txt";
+            mapajogo.arquivo = "mapas/mapa6.txt";
             mapajogo.carregatudo();
             break;
         default:

@@ -50,9 +50,9 @@ d
 s
 a
 a
-d
-d
 w
+d
+d
 d
 d
 d
@@ -81,10 +81,6 @@ a
 a
 a
 a
-s
 a
 w
-d
-w
-a
 a

@@ -32,4 +32,4 @@ int main()
     return 0;
 } //fim main
 
-//ranking no csv com funcao de ordenar é mais facil, mas por desafio fazer no c++ com o txt
+//ranking no csv com funcao de ordenar ï¿½ mais facil, mas por desafio fazer no c++ com o txt
